@@ -16,7 +16,11 @@ app.use('/users', require('./routes/user'));
 
 
 app.get('/', (req, res, next) => {
-    res.send(layout('Hi there!'));
+    try {
+        res.redirect('/wiki');
+    } catch (next) {
+        next (error)
+    }
 });
 
 db.authenticate().
@@ -25,7 +29,8 @@ then(() => {
 });
 
 const init = async() => {
-    await models.db.sync({force: true});
+    await models.db.sync();
+    //why does {force: true} make the data not persist?
     app.listen(3000, () => {
         console.log(`App listening in port 3000`);
     });
