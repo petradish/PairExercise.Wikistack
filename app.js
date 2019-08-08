@@ -29,8 +29,7 @@ then(() => {
 });
 
 const init = async() => {
-    await models.db.sync();
-    //why does {force: true} make the data not persist?
+    await models.db.sync({force: true});
     app.listen(3000, () => {
         console.log(`App listening in port 3000`);
     });

@@ -12,7 +12,7 @@ module.exports = (pages) => layout(html`
   <div class="pages-main">
   <ul class="list-unstyled">
     <ul>
-      ${pages.map(page => html`<li><a href="/wiki/${page.dataValues.slug}">${page.dataValues.title} by author placeholder </a></li>`
+      ${pages.map(page => html`<li><a href="/wiki/${page.dataValues.slug}">${page.dataValues.title} by placeholder :(</a></li>`
       )}
     </ul>
   </ul>
